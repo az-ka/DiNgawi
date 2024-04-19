@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+</head>
+<body>
+<div class="max-w-2xl mx-auto">
+    <!--  Profile  -->
+    <section class="m-6">
+        <div class="flex items-center container gap-4 bg-white shadow-2xl p-4">
+            <img src="https://github.com/az-ka.png" class="h-24 w-24 rounded-full">
+            <div class="flex flex-col">
+                <h1 class="mb-1 font-bold">Aldzi Fadlian Azka</h1>
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="lucide lucide-award">
+                        <circle cx="12" cy="8" r="6"/>
+                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                    </svg>
+                    <span class="text-sm">1279 XP</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="lucide lucide-calendar-days">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                        <line x1="16" x2="16" y1="2" y2="6"/>
+                        <line x1="8" x2="8" y1="2" y2="6"/>
+                        <line x1="3" x2="21" y1="10" y2="10"/>
+                        <path d="M8 14h.01"/>
+                        <path d="M12 14h.01"/>
+                        <path d="M16 14h.01"/>
+                        <path d="M8 18h.01"/>
+                        <path d="M12 18h.01"/>
+                        <path d="M16 18h.01"/>
+                    </svg>
+                    <span class="text-sm">Bergabung sejak 2023</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="lucide lucide-compass">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                    </svg>
+                    <span class="text-sm">Kabupaten Sukoharjo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--  Book  -->
+    <section class="p-4 mb-10">
+        <div class="flex justify-between items-center mb-5">
+            <h1 class="font-bold text-xl">List Book</h1>
+            <button class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-neutral-800 text-white hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-neutral-600 focus:ring-offset-2 transition-all text-sm"
+                    type="button" onclick="toggleAddModal('modal-id')">
+                Add
+            </button>
+        </div>
+
+        <!--  Book Done  -->
+        <div>
+            <h2 class="text-left font-semibold">Books Done</h2>
+
+            <!-- Card Books -->
+            <div id="books-done" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+            <!-- End Card Books -->
+        </div>
+
+        <!--  Book UnDone  -->
+        <div>
+            <h2 class="text-left font-semibold">Books Undone</h2>
+            <!-- Card Books -->
+            <div id="books-undone" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+            <!-- End Card Books -->
+        </div>
+    </section>
+</div>
+
+<!-- Modal -->
+<div class=" hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
+     id="modal-id">
+    <div class="relative w-full max-w-2xl my-6 mx-auto ">
+        <!--content-->
+        <form id="form"
+              class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+            <!--header-->
+            <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                <h3 class="text-xl font-semibold">
+                    Add Book
+                </h3>
+                <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                        onclick="toggleModal('modal-id')">
+              <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                ×
+              </span>
+                </button>
+            </div>
+            <!--body-->
+            <div class="relative p-6 flex-auto space-y-2">
+                <input type="hidden" name="id" id="idBook">
+                <div>
+                    <label for="title" class="block text-sm font-medium mb-2">Title</label>
+                    <input type="text" id="title"
+                           class="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500">
+                    <div id="titleError" class="text-sm text-red-500"></div>
+                </div>
+                <div>
+                    <label for="author" class="block text-sm font-medium mb-2">Author</label>
+                    <input type="text" id="author"
+                           class="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500">
+                    <div id="authorError" class="text-sm text-red-500"></div>
+                </div>
+                <div>
+                    <label for="color" class="block text-sm font-medium mb-2">Color</label>
+                    <select id="color"
+                            class="py-3 px-4 pr-9 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option selected>Select Color</option>
+                        <option value="bg-red-400">Red</option>
+                        <option value="bg-pink-400">Pink</option>
+                        <option value="bg-purple-400">Purple</option>
+                        <option value="bg-indigo-400">Indigo</option>
+                        <option value="bg-blue-400">Blue</option>
+                        <option value="bg-teal-400">Teal</option>
+                        <option value="bg-green-400">Green</option>
+                        <option value="bg-yellow-400">Yellow</option>
+                        <option value="bg-amber-400">Amber</option>
+                        <option value="bg-brown-400">Brown</option>
+                        <option value="bg-grey-400">Grey</option>
+                    </select>
+                    <div id="colorError" class="text-sm text-red-500"></div>
+                </div>
+                <div>
+                    <label for="status" class="block text-sm font-medium mb-2">Status</label>
+                    <select id="status"
+                            class="py-3 px-4 pr-9 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option selected>Select Status</option>
+                        <option value="done">Done</option>
+                        <option value="undone">Undone</option>
+                    </select>
+                    <div id="statusError" class="text-sm text-red-500"></div>
+                </div>
+                <div>
+                    <label for="image" class="block text-sm font-medium mb-2">Choose file</label>
+                    <input type="file" name="image" id="image" class="block w-full border border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500
+                    file:bg-transparent file:border-0
+                    file:bg-gray-100 file:mr-4
+                    file:py-3 file:px-4">
+                    <div id="imageError" class="text-sm text-red-500"></div>
+                </div>
+            </div>
+            <!--footer-->
+            <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                <button class="text-neutral-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        type="button" onclick="toggleModal('modal-id')">
+                    Close
+                </button>
+                <button id="saveButton"
+                        class="py-2 px-3 justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-neutral-800 text-white hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-neutral-600 focus:ring-offset-2 transition-all text-sm"
+                        type="button" onclick="save()">
+                    Save
+                </button>
+
+                <button id="updateButton"
+                        class="py-2 px-3 justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-neutral-800 text-white hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-neutral-600 focus:ring-offset-2 transition-all text-sm"
+                        type="button">
+                    Save Change
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
+
+<!-- JS -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

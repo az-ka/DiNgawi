@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Learn Html Css Dicoding</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="./css/style.css" />
+        <!-- Font -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Simple Website Profile & Article</h1>
+                <nav>
+                    <a onclick="showContent('Profile')">Profile</a>
+                    <a onclick="showContent('Article')">Article</a>
+                </nav>
+            </header>
+            <main>
+                <div id="Profile" class="profile hidden">
+                    <img
+                        class="profile-img"
+                        src="./image/0000090.png"
+                        alt="profile"
+                    />
+                    <h1 class="name">Aldzi Fadlian Azka</h1>
+                    <h3 class="role">Full Stack Developer</h3>
+                    <aside>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing
+                            elit. Nemo, vel. Temporibus eum provident voluptatem
+                            quibusdam esse cupiditate iure cum. Repellendus
+                            nostrum a dolor ipsa perspiciatis veniam error
+                            deleniti quas corporis ratione eius expedita harum
+                            beatae rem dignissimos, velit hic maxime eaque
+                            aliquid natus quibusdam. Suscipit vel nostrum
+                            repudiandae consequatur soluta!
+                        </p>
+                        <div class="social">
+                            <a href="#"
+                                ><img src="./svg/facebook.svg" alt=""
+                            /></a>
+                            <a href="#"
+                                ><img src="./svg/github.svg" alt=""
+                            /></a>
+                            <a href="#">
+                                <img src="./svg/linkedin.svg" alt="" />
+                            </a>
+                        </div>
+                    </aside>
+                </div>
+
+                <article id="Article" class="hidden" style="display: none">
+                    <img class="banner-img" src="./image/banner.png" alt="" />
+                    <h2 class="title">Apa Itu Html Dan Css?</h2>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Obcaecati, odit.
+                    </p>
+
+                    <h3 class="title-2">HTML</h3>
+                    <p class="description">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Fuga numquam iste ratione, architecto totam
+                        commodi cumque asperiores molestiae. Nihil, eveniet!
+                    </p>
+
+                    <h3 class="title-2">CSS</h3>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Aliquam ducimus aliquid iusto quibusdam mollitia?
+                        Necessitatibus cum eaque ullam exercitationem
+                        consequatur dolorum nisi architecto, molestias maiores
+                        quod.
+                    </p>
+                </article>
+            </main>
+            <footer>Power By <span>Azka</span> | Dicoding 2023</footer>
+        </div>
+
+        <script>
+            function showContent(nameContent) {
+                var i;
+                var x = document.getElementsByClassName("hidden");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                document.getElementById(nameContent).style.display = "block";
+            }
+        </script>
+    </body>
+</html>
